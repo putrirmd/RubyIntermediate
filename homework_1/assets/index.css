@@ -1,0 +1,60 @@
+h1{
+    color : #e36387;
+}
+
+h3 , label{
+    color: #c56183;
+}
+
+#list-menu {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    color: #c56183;
+}
+
+#list-menu td, #list-menu th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#list-menu tr:nth-child(even){background-color: #f2f2f2;}
+
+#list-menu tr:hover {background-color: #ddd;}
+
+#list-menu th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #f2aaaa;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    color : #f2aaaa;
+}
+
+a:hover{
+    color : #ee6f57;
+    font-style: italic;
+    transition: font-style;
+}
+
+input[type=text] {
+    width: 35%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 35%;
+    background-color: #e36387;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
