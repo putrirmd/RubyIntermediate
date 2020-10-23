@@ -22,7 +22,7 @@ Order_Detail | Record all the detail of the order such as items in an order and 
 <img src="all_screenshots/data_2.png" width=450>
 
 # Detail for every order
-<img src="all_screenshots/detail_all_order.png" width=400>
+<img src="all_screenshots/detail_all_order.png" width=500>
 
 # Order summary
-<img src="all_screenshots/order_summary.png" width=400>
+<img src="all_screenshots/order_summary.png" width=500>
