@@ -105,9 +105,9 @@ SELECT  O.ID ORDER_ID
         ,C.NAME CUSTOMER_NAME
         ,C.PHONE_NO CUSTOMER_PHONE
         ,I.NAME ITEM_NAME
-        ,PRICE
+        ,PRICE_PER_ITEM
         ,QUANTITY
-        ,(PRICE*QUANTITY) TOTAL_PER_ITEM
+        ,(PRICE_PER_ITEM*QUANTITY) TOTAL_PER_ITEM
 FROM CUSTOMERS C
 JOIN ORDERS O
     ON C.ID = O.CUSTOMER_ID
@@ -124,9 +124,9 @@ WITH ALL_ORDER AS(
             ,C.NAME CUSTOMER_NAME
             ,C.PHONE_NO CUSTOMER_PHONE
             ,I.NAME ITEM_NAME
-            ,PRICE
+            ,PRICE_PER_ITEM
             ,QUANTITY
-            ,(PRICE*QUANTITY) TOTAL_PER_ITEM
+            ,(PRICE_PER_ITEM*QUANTITY) TOTAL_PER_ITEM
     FROM CUSTOMERS C
     JOIN ORDERS O
         ON C.ID = O.CUSTOMER_ID
@@ -145,3 +145,36 @@ GROUP BY    ORDER_ID,
             CUSTOMER_NAME, 
             CUSTOMER_PHONE
 ORDER BY ORDER_ID 
+
+-- UPDATE QUERY
+SELECT  O.ID ORDER_ID, 
+        DATE_FORMAT(ORDER_DATETIME, '%Y-%m-%d') ORDER_DATE, 
+        C.NAME CUSTOMER_NAME, 
+        C.PHONE_NO CUSTOMER_PHONE,
+        SUM(PRICE_PER_ITEM*QUANTITY) TOTAL, 
+        GROUP_CONCAT(I.NAME) ITEM_ORDERED
+FROM CUSTOMERS C
+JOIN ORDERS O
+ON C.ID = O.CUSTOMER_ID
+JOIN ORDER_DETAIL OD
+ON O.ID = OD.ORDER_ID
+JOIN ITEMS I
+ON OD.ITEM_ID = I.ID
+GROUP BY ORDER_ID, ORDER_DATE, CUSTOMER_NAME, CUSTOMER_PHONE
+
+-- UPDATE FOR ORDER_DETAIL : ADDED NEW COLUMN PRICE_PER_ITEM
+mysql> update order_detail set price_per_item = 40000 where item_id = 3;
+
+mysql> update order_detail set price_per_item = 18000 where item_id = 4;
+
+mysql> update order_detail set price_per_item = 2000 where item_id = 2;
+
+mysql> update order_detail set price_per_item = 36000 where item_id = 7;
+
+mysql> update order_detail set price_per_item = 20000 where item_id = 8;
+
+mysql> update order_detail set price_per_item = 13000 where item_id = 6;
+
+mysql> update order_detail set price_per_item = 15000 where item_id = 5;
+
+mysql> update order_detail set price_per_item = 25000 where item_id = 1;
