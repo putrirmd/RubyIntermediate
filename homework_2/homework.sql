@@ -38,7 +38,7 @@ create table orders (
     foreign key (customer_id) references customers(id) 
 );
  
-create table order_detail(
+create table ORDER_DETAILS(
     order_id int not null,
     item_id int not null,
     quantity int default 1,
@@ -86,7 +86,7 @@ insert into orders (customer_id, order_datetime) values
 (2, subdate(now(), 1)),
 (5, now());
 
-insert into order_detail (order_id, item_id, quantity) values 
+insert into ORDER_DETAILS (order_id, item_id, quantity) values 
 (1, 3, 2),
 (1, 4 ,1),
 (1, 2, 1),
@@ -111,11 +111,11 @@ SELECT  O.ID ORDER_ID
 FROM CUSTOMERS C
 JOIN ORDERS O
     ON C.ID = O.CUSTOMER_ID
-JOIN ORDER_DETAIL OD
+JOIN ORDER_DETAILS OD
     ON O.ID = OD.ORDER_ID
 JOIN ITEMS I
     ON OD.ITEM_ID = I.ID
-ORDER BY O.ID
+ORDER BY O.ID;
 
 -- ORDER SUMMARY
 WITH ALL_ORDER AS(
@@ -130,7 +130,7 @@ WITH ALL_ORDER AS(
     FROM CUSTOMERS C
     JOIN ORDERS O
         ON C.ID = O.CUSTOMER_ID
-    JOIN ORDER_DETAIL OD
+    JOIN ORDER_DETAILS OD
         ON O.ID = OD.ORDER_ID
     JOIN ITEMS I
         ON OD.ITEM_ID = I.ID
@@ -144,7 +144,7 @@ GROUP BY    ORDER_ID,
             ORDER_DATE, 
             CUSTOMER_NAME, 
             CUSTOMER_PHONE
-ORDER BY ORDER_ID 
+ORDER BY ORDER_ID;
 
 -- UPDATE QUERY
 SELECT  O.ID ORDER_ID, 
@@ -156,25 +156,27 @@ SELECT  O.ID ORDER_ID,
 FROM CUSTOMERS C
 JOIN ORDERS O
 ON C.ID = O.CUSTOMER_ID
-JOIN ORDER_DETAIL OD
+JOIN ORDER_DETAILS OD
 ON O.ID = OD.ORDER_ID
 JOIN ITEMS I
 ON OD.ITEM_ID = I.ID
-GROUP BY ORDER_ID, ORDER_DATE, CUSTOMER_NAME, CUSTOMER_PHONE
+GROUP BY ORDER_ID, ORDER_DATE, CUSTOMER_NAME, CUSTOMER_PHONE;
 
--- UPDATE FOR ORDER_DETAIL : ADDED NEW COLUMN PRICE_PER_ITEM
-mysql> update order_detail set price_per_item = 40000 where item_id = 3;
+-- UPDATE FOR ORDER_DETAILS : ADDED NEW COLUMN PRICE_PER_ITEM
+alter table ORDER_DETAILS add price_per_item decimal(10,2);
 
-mysql> update order_detail set price_per_item = 18000 where item_id = 4;
+mysql> update ORDER_DETAILS set price_per_item = 40000 where item_id = 3;
 
-mysql> update order_detail set price_per_item = 2000 where item_id = 2;
+mysql> update ORDER_DETAILS set price_per_item = 18000 where item_id = 4;
 
-mysql> update order_detail set price_per_item = 36000 where item_id = 7;
+mysql> update ORDER_DETAILS set price_per_item = 2000 where item_id = 2;
 
-mysql> update order_detail set price_per_item = 20000 where item_id = 8;
+mysql> update ORDER_DETAILS set price_per_item = 36000 where item_id = 7;
 
-mysql> update order_detail set price_per_item = 13000 where item_id = 6;
+mysql> update ORDER_DETAILS set price_per_item = 20000 where item_id = 8;
 
-mysql> update order_detail set price_per_item = 15000 where item_id = 5;
+mysql> update ORDER_DETAILS set price_per_item = 13000 where item_id = 6;
 
-mysql> update order_detail set price_per_item = 25000 where item_id = 1;
+mysql> update ORDER_DETAILS set price_per_item = 15000 where item_id = 5;
+
+mysql> update ORDER_DETAILS set price_per_item = 25000 where item_id = 1;
