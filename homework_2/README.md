@@ -35,7 +35,7 @@ So, in order to solve that issue, I added new column in ORDER_DETAIL which is PR
 <br>
 <img src="all_screenshots/update_erd.png" width=500>
 <br>
-<img src="all_screenshots/update_order_deatils.png" width=450>
+<img src="all_screenshots/update_od.png" width=450>
 
 #### Updated Query for Order Summary
 <img src="all_screenshots/update_query.png" width=700>
