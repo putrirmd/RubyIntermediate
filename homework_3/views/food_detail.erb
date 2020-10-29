@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bee's</title>
+    <link rel="stylesheet" href="<%= url('style.css') %>">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            <img src="<%= url('header.jpg') %>" width=100%>
+            </div>
+        </div>
+    </div>
+    <div class="container" >
+        <div class="row">
+            <div class="col-lg-8 col-centered rounded" style="background-color: white;">
+                <h1 class="title"><b>Item Details</b></h1><br>
+                <div class="table-responsive-sm">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <% item_details.each do |item_detail|%>
+                            <tr>
+                                <td><%= item_detail.name %></td>
+                                <td>Rp <%= item_detail.price %>,00</td>
+                                <td><%= item_detail.category %></td>
+                            </tr>
+                        <% end %>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-centered rounded" style="height:70px;">
+                        <a href="/foods" class="btn btn-primary btn-sm">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

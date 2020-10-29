@@ -1,0 +1,61 @@
+body {
+    /* Location of the image */
+    background-image: url(../assets/bg1.jpg);
+    
+    /* Background image is centered vertically and horizontally at all times */
+    background-position: center center;
+    
+    /* Background image doesn't tile */
+    background-repeat: no-repeat;
+    
+    /* Background image is fixed in the viewport so that it doesn't move when 
+       the content's height is greater than the image's height */
+    background-attachment: fixed;
+    
+    /* This is what makes the background image rescale based
+       on the container's size */
+    background-size: cover;
+    
+    /* Set a background color that will be displayed
+       while the background image is loading */
+    background-color: #464646;
+}
+
+.row {
+    margin-top: 10%;
+}
+
+.title {
+    color : #CFCFC5;
+    text-shadow: 1px 1px 2px #FFFFF1;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+table {
+    width: 50%;
+}
+
+th, td {
+    color:#a1a1a1;
+    padding: 15px;
+}
+
+tr {
+    background-color: grey;
+}
+
+.card:hover{
+    opacity : 0.7;
+    transition : opacity 1s;
+}
+/* #A90409  */
+.btn-primary, .btn-primary:active{
+    background-color: #cf1020 !important;
+    border-color: #cf1020 !important;
+}
+/* #dcdcdc */
+.btn-primary:hover {
+    background-color: #CFCFC5 !important;
+    border-color: #CFCFC5 !important;
+    color : #9A0002 !important;
+}

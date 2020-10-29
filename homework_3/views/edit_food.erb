@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bee's</title>
+    <link rel="stylesheet" href="<%= url('style.css') %>">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="<%= url('header.jpg') %>" width=100%>
+            </div>
+        </div>
+    </div>
+    <div class="container" >
+        <div class="row">
+            <div class="col-lg-8 col-centered rounded" style="background-color: white;">
+                <h1 class="title"><b>Edit Item</b></h1><br>
+                <div>
+                    <form action="/foods/update" method="POST">
+                    <% item_details.each do |item_detail| %>
+                        <input type="hidden" name="foodid" value="<%= item_detail.id %>">
+                        <label for="fname">Food Name</label>
+                        <input type="text" id="fname" name="foodname" value="<%= item_detail.name %>">
+                    
+                        <label for="fprice">Food Price</label>
+                        <input type="text" id="fprice" name="foodprice" value="<%= item_detail.price %>">
+                    
+                        <label for="fcategory">Categories</label>
+                        <select id="fcategory" name="foodcategory">
+                        <% categories.each do |category| %>
+                            <option value="<%= category.id %>" <%= if category.name == item_detail.category then 'selected=\"selected\"' end %>><%= category.name %></option>
+                        <% end %>
+                        </select>
+                    <% end %>
+                        <input type="submit" value="Update">
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-centered rounded" style="height:70px;">
+                        <a href="/foods" class="btn btn-primary btn-sm">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
