@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bee's</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="/header.jpg" width=100%>
+            </div>
+        </div>
+    </div>
+    <div class="container" >
+        <div class="row">
+            <div class="col-lg-8 col-centered rounded" style="background-color: white;">
+                <h1 class="title"><b>Delete Category</b></h1><br>
+                <% category_details.each do |detail| %>
+                    <form action="/categories/delete/<%= detail.id %>" method="POST">
+                        <label for="cname" style="text-aligned:center;">Do you want to delete <%= detail.name %>?</label>
+                    <% if detail.items != 0 %>
+                        <p style="font-size:10px;"><b>Deleting this category will result in deletion of <%= detail.items %> item(s)!</b></p>
+                    <% else %>
+                        <p style="font-size:10px;"><b>Deleting this category will not result in deletion of any item</b></p>
+                    <% end %>
+                        <input type="submit" id="cname" name="categoryname" value="Delete">
+                    </form>
+                <% end %>
+                <div class="row">
+                    <div class="col-lg-12 col-centered rounded" style="height:70px;">
+                        <a href="/categories" class="btn btn-primary btn-sm">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

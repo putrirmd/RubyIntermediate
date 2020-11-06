@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bee's</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="/header.jpg" width=100%>
+            </div>
+        </div>
+    </div>
+    <div class="container" >
+        <div class="row">
+            <div class="col-lg-8 col-centered rounded" style="background-color: white;">
+                <h1 class="title"><b>Edit Category</b></h1><br>
+                <div>
+                    <form action="/categories/edit" method="POST">
+                    <% category_details.each do |detail| %>
+                        <input type="hidden" name="categoryid" value="<%= detail.id %>">
+                        <label for="cname">Food Name</label>
+                        <input type="text" id="cname" name="categoryname" value="<%= detail.name %>">
+                        
+                    <% end %>
+                        <input type="submit" value="Update">
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-centered rounded" style="height:50px;">
+                        <a href="/categories" class="btn btn-primary btn-sm">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

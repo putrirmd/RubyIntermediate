@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bee's</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="/header.jpg" width=100%>
+            </div>
+        </div>
+    </div>
+    <div class="container" >
+        <div class="row">
+            <div class="col-lg-8 col-centered rounded" style="background-color: white;">
+                <h1 class="title"><b>Create New Menu</b></h1><br>
+                <div>
+                    <form action="/categories/create" method="POST">
+                        <label for="cname">Category Name</label>
+                        <input type="text" id="cname" name="categoryname" placeholder="Category name..">
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-centered rounded" style="height:70px;">
+                        <a href="/categories" class="btn btn-primary btn-sm">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
